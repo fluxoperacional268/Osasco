@@ -496,6 +496,20 @@
       max-height: 430px
     }
 
+    /* ---------- Imagem do Fluxo Interno ---------- */
+    .internal-flow {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      cursor: zoom-in;
+      background: #fff;
+    }
+
     .lightbox {
       position: fixed;
       inset: 0;
@@ -783,6 +797,7 @@
       <div class="rail-group-label">Início</div>
       <button class="tab active" data-tab="overview"><span class="ico">🧭</span>Visão geral</button>
       <button class="tab" data-tab="contatos"><span class="ico">📇</span>Contatos</button>
+      <button class="tab" data-tab="fluxo"><span class="ico">🔀</span>Fluxo Interno</button>
 
       <div class="rail-group-label">Autorizações</div>
       <button class="tab" data-tab="rede"><span class="ico">🛣️</span>Rede</button>
@@ -1469,9 +1484,9 @@
               <div class="step-line"></div>
               <div class="step-body">
                 <h4>Conclusão</h4>
-                <p>Após o protocolo, atualizar o status para “Processo Encerrado” para Ramal e Manutenção na planilha de governança. Para Rede, mudar o status para "Protocolado Encerramento", o processo só é finalizado após o CCO. Fulcrum,
-                  atualizar com todas as documentações recebidas e comprovante de protocolo. No Lecom, avançar com o
-                  comprovante de protocolo. Conferir que tudo foi registrado antes de avançar o status.</p>
+                <p>Após o protocolo, atualizar o status para “Processo Encerrado” na planilha de governança. No <b>Fulcrum</b>,
+                  atualizar com todas as documentações recebidas e comprovante de protocolo. No <b>Lecom</b>, avançar com o
+                  comprovante de protocolo. Conferir se tudo foi registrado antes de avançar o status.</p>
                   <div class="step-imgs"><img class="tall"
                     src="nathan/PROCESSO ENCERRADO.png"
                     alt="Figura 8 — Modelo de autorização do Demutran para ramais"></div>
@@ -1545,6 +1560,20 @@
         </div>
         <div class="attention"><span>📧</span>
           <div>Solicitar o cancelamento via e-mail para <b>Obras e/ou Trânsito</b>, conforme o processo.</div>
+        </div>
+      </section>
+
+      <!-- ================= FLUXO INTERNO ================= -->
+      <section class="page" id="page-fluxo">
+        <div class="page-head">
+          <div class="kicker">FLUXO INTERNO</div>
+          <h2>Autorização para Obras em Via Pública</h2>
+        </div>
+        <div class="card">
+          <img
+            alt="Fluxo interno de autorização para obras em via pública — Osasco"
+            class="internal-flow"
+            src="nathan/Osasco.png">
         </div>
       </section>
 
@@ -1663,7 +1692,7 @@
       document.querySelectorAll("[data-goto]").forEach(b => b.addEventListener("click", () => go(b.dataset.goto)));
 
       const lb = document.getElementById("lightbox"), lbImg = document.getElementById("lightboxImg");
-      document.querySelectorAll(".step-imgs img,.cover-map,.logos img").forEach(img => {
+      document.querySelectorAll(".step-imgs img,.cover-map,.logos img,.internal-flow").forEach(img => {
         img.addEventListener("click", () => { lbImg.src = img.src; lb.classList.add("open") });
       });
       document.getElementById("lightboxClose").onclick = () => lb.classList.remove("open");
